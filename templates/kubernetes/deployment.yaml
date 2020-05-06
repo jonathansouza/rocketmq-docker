@@ -1,3 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rocketmq-svc
+spec:
+  selector:
+    app: rocketmq
+  ports:
+    - port: 10909
+      targetPort: 10909
+    - port: 10911
+      targetPort: 10911
+  type: LoadBalancer
+---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
