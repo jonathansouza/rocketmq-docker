@@ -23,7 +23,7 @@ spec:
           - mountPath: /home/rocketmq/store
             name: brokeroptstore
       - name: namesrv
-        image: apacherocketmq/rocketmq:ROCKETMQ_VERSION
+        image: apacherocketmq/rocketmq:latest
         command: ["sh","mqnamesrv"]
         imagePullPolicy: IfNotPresent
         ports:
