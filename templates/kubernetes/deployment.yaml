@@ -12,6 +12,9 @@ spec:
     - port: 10911
       targetPort: 10911
       name: port2
+    - port: 9876
+      targetPort: 9876
+      name: port3
   type: LoadBalancer
 ---
 apiVersion: extensions/v1beta1
