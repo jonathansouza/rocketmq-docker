@@ -35,7 +35,7 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: JAVA_HOME
-          value: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre
+          value: "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre"
         ports:
           - containerPort: 10909
           - containerPort: 10911
