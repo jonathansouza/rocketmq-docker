@@ -31,8 +31,8 @@ spec:
       containers:
       - name: broker
         image: apacherocketmq/rocketmq:latest
-        command: ["sh", "-c"]
-        args: ["curl https://raw.githubusercontent.com/jonathansouza/rocketmq-docker/master/templates/kubernetes/broker.conf --output broker.conf"]
+        command: ["sh","-c"]
+        args: ["mqbroker -n localhost:9876"]
         imagePullPolicy: IfNotPresent
         env:
         - name: JAVA_HOME
