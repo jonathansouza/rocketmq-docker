@@ -32,7 +32,7 @@ spec:
       - name: broker
         image: apacherocketmq/rocketmq:latest
         command: ["sh", "-c"]
-        args: ["curl https://raw.githubusercontent.com/jonathansouza/rocketmq-docker/master/templates/kubernetes/broker.conf --output broker.conf; mqbroker -n localhost:9876 -c broker.conf"]
+        args: ["curl https://raw.githubusercontent.com/jonathansouza/rocketmq-docker/master/templates/kubernetes/broker.conf --output broker.conf"]
         imagePullPolicy: IfNotPresent
         env:
         - name: JAVA_HOME
