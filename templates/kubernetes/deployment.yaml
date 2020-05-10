@@ -27,6 +27,8 @@ spec:
     metadata:
      labels:
        app: rocketmq
+     annotations:
+       name1: value1
     spec:
       containers:
       - name: broker
