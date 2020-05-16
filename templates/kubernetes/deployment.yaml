@@ -6,7 +6,7 @@ spec:
   selector:
     app: rocketmq
   ports:
-    - port: 80
+    - port: 10881
       targetPort: 10881
       name: port80
   type: LoadBalancer
