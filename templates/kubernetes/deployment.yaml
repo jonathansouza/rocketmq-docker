@@ -25,7 +25,7 @@ kind: Deployment
 metadata:
   name: rocketmq
 spec:
-  replicas: 3
+  replicas: 6
   template:
     metadata:
      labels:
