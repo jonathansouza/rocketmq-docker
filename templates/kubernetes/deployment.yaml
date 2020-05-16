@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: enotasqueue
-        image: jonathansouza23/chrome:v1.4
+        image: jonathansouza23/chrome:v1.5
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 10881
