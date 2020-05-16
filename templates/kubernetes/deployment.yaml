@@ -6,7 +6,7 @@ spec:
   selector:
     app: rocketmq
   ports:
-    - port: 10881
+    - port: 80
       targetPort: 10881
       name: port80
   type: LoadBalancer
@@ -41,7 +41,7 @@ spec:
      labels:
        app: rocketmq
      annotations:
-       name1: value4
+       name1: value5
     spec:
       containers:
       - name: enotasqueue
