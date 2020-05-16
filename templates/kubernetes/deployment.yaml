@@ -41,7 +41,7 @@ spec:
      labels:
        app: rocketmq
      annotations:
-       name1: value2
+       name1: value1
     spec:
       containers:
       - name: enotasqueue
