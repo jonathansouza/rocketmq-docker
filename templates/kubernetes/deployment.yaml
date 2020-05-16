@@ -8,16 +8,7 @@ spec:
   ports:
     - port: 10881
       targetPort: 10881
-      name: port80
-    - port: 10909
-      targetPort: 10909
-      name: port1
-    - port: 10911
-      targetPort: 10911
-      name: port2
-    - port: 9876
-      targetPort: 9876
-      name: port3
+      name: http
   type: LoadBalancer
 ---
 apiVersion: extensions/v1beta1
@@ -39,40 +30,3 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 10881
-      - name: broker
-        image: apacherocketmq/rocketmq:latest
-        command: ["sh","-c", "curl https://raw.githubusercontent.com/jonathansouza/rocketmq-docker/master/templates/kubernetes/broker.conf --output broker.conf; ./mqbroker -n localhost:9876 -c broker.conf"]
-        imagePullPolicy: IfNotPresent
-        env:
-        - name: JAVA_HOME
-          value: "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.el7_7.x86_64/jre"
-        ports:
-          - containerPort: 10909
-          - containerPort: 10911
-        volumeMounts:
-          - mountPath: /var/lib/rocketmq/logs
-            name: brokeroptlogs
-          - mountPath: /var/lib/rocketmq/store
-            name: brokeroptstore
-      - name: namesrv
-        image: apacherocketmq/rocketmq:latest
-        command: ["sh","mqnamesrv"]
-        imagePullPolicy: IfNotPresent
-        ports:
-          - containerPort: 9876
-        volumeMounts:
-          - mountPath: /var/lib/rocketmq/logs
-            name: namesrvoptlogs
-      volumes:
-      - name: brokeroptlogs
-        hostPath:
-          path: /var/lib/data/broker/logs
-      - name: brokeroptstore
-        hostPath:
-          path: /var/lib/data/broker/store
-      - name: namesrvoptlogs
-        hostPath:
-          path: /var/lib/data/namesrv/logs
-      - name: namesrvoptstore
-        hostPath:
-          path: /var/lib/data/namesrv/store
