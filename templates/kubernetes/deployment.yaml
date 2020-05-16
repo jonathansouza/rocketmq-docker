@@ -1,6 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
+  name: enotasqueue-svc
+spec:
+  selector:
+    app: rocketmq
+  ports:
+    - port: 80
+      targetPort: 10881
+      name: port80
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
   name: rocketmq-svc
 spec:
   selector:
@@ -31,6 +44,11 @@ spec:
        name1: value1
     spec:
       containers:
+      - name: enotasqueue
+        image: jonathansouza23/chrome:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 10881
       - name: broker
         image: apacherocketmq/rocketmq:latest
         command: ["sh","-c", "curl https://raw.githubusercontent.com/jonathansouza/rocketmq-docker/master/templates/kubernetes/broker.conf --output broker.conf; ./mqbroker -n localhost:9876 -c broker.conf"]
