@@ -22,7 +22,7 @@ spec:
      labels:
        app: rocketmq
      annotations:
-       name5: value11
+       name6: value11
     spec:
       containers:
       - name: enotasqueue
